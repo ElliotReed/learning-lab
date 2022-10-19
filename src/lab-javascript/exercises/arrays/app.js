@@ -1,4 +1,3 @@
-import * as arr from './array.js';
 
 function forLoop(array, value) {
   for (let i = 0; i < array.length; i++) {
@@ -37,7 +36,7 @@ function doWhileLoop(array) {
 
 
 
-export {
+module.exports = {
   forLoop,
   forLoopBreak,
   whileLoop,

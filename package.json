@@ -4,7 +4,10 @@
   "description": "A coding exercise, practice app",
   "main": "app.js",
   "scripts": {
-    "test": "mocha || true"
+    "test": "mocha 'src/**/*.test.js' || true",
+    "test:watch": "mocha 'src/**/*.test.js' --watch || true",
+    "test-html": "mocha 'src/lab-html/**/*.test.js' || true",
+    "test-html:watch": "mocha 'src/lab-html/**/*.test.js' --watch || true"
   },
   "keywords": [
     "JavaScript"
@@ -21,7 +24,9 @@
   "homepage": "https://github.com/ElliotReed/javascript_lab#readme",
   "devDependencies": {
     "chai": "^4.3.6",
+    "chai-dom": "^1.11.0",
+    "jsdom": "^20.0.1",
+    "jsdom-global": "^3.0.2",
     "mocha": "^10.0.0"
-  },
-  "type": "module"
+  }
 }

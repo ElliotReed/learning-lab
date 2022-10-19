@@ -1,16 +1,16 @@
 :root {
-  --background: #e6e0d0;
-
-  --primary: #ff4a4a;
+  --background: rgb(230, 224, 208);
   --fontFamily: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --fontFamilyBlackboard: "Nothing You Could Do", cursive;
   --padding: 1rem;
 }
 
+/* #region Base Style */
 html {
   font-family: var(--fontFamily);
   font-size: 16px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media only screen and (min-width: 768px) {
@@ -18,30 +18,26 @@ html {
     font-size: 18px;
   }
 }
-
 @media only screen and (min-width: 1080px) {
   html {
     font-size: 22px;
   }
 }
-
 body {
   background-color: var(--background);
   width: 100vw;
   height: 100vh;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: auto 1fr 1fr auto;
-  min-height: 0;
-  /* NEW */
-  min-width: 0;
-  /* NEW; needed for Firefox */
+  min-height: 0; /* NEW */
+  min-width: 0; /* NEW; needed for Firefox */
 }
 
 header {
   grid-row: 1;
-  grid-column: 1 / 13;
+  grid-column: 1/6;
   padding: var(--padding);
   font-family: var(--fontFamilyBlackboard);
 }
@@ -52,7 +48,7 @@ header h1 {
   line-height: 4rem;
   margin-left: 4rem;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75), -2px -2px 0 rgba(0, 0, 0, 0.75);
-  color: var(--primary);
+  color: #ff4a4a;
 }
 
 header img {
@@ -62,34 +58,17 @@ header img {
   height: 4rem;
 }
 
-aside {
-  grid-column: 1/4;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  background-color: #eee;
-  // border: 1px solid red;
-}
-
-aside button {
-  --size: ;
-  width: auto;
-  margin: 0 0 1rem;
-  border-radius: 0.25em;
-  background-color: var(--primary);
-  padding: 1rem * 0.618 1rem;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75), -2px -2px 0 rgba(0, 0, 0, 0.75);
-}
-
 main {
-  grid-row: 2 / 4;
-  grid-column: 5 / 12;
-  display: flex;
+  width: 100vw;
+  display: grid;
+  place-content: center;
 }
 
 footer {
   grid-row: 5;
-  grid-column: 1 / 13;
+  grid-column: 1/6;
   padding: var(--padding);
   text-align: end;
 }
+
+/* #endregion Base Style *//*# sourceMappingURL=style-base.css.map */

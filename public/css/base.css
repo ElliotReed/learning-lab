@@ -1,6 +1,5 @@
 :root {
   --background: #e6e0d0;
-
   --primary: #ff4a4a;
   --fontFamily: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --fontFamilyBlackboard: "Nothing You Could Do", cursive;
@@ -10,7 +9,8 @@
 html {
   font-family: var(--fontFamily);
   font-size: 16px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media only screen and (min-width: 768px) {
@@ -18,13 +18,11 @@ html {
     font-size: 18px;
   }
 }
-
 @media only screen and (min-width: 1080px) {
   html {
     font-size: 22px;
   }
 }
-
 body {
   background-color: var(--background);
   width: 100vw;
@@ -41,7 +39,7 @@ body {
 
 header {
   grid-row: 1;
-  grid-column: 1 / 13;
+  grid-column: 1/13;
   padding: var(--padding);
   font-family: var(--fontFamilyBlackboard);
 }
@@ -64,11 +62,15 @@ header img {
 
 aside {
   grid-column: 1/4;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 1rem;
   background-color: #eee;
-  // border: 1px solid red;
 }
 
 aside button {
@@ -77,19 +79,22 @@ aside button {
   margin: 0 0 1rem;
   border-radius: 0.25em;
   background-color: var(--primary);
-  padding: 1rem * 0.618 1rem;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75), -2px -2px 0 rgba(0, 0, 0, 0.75);
+  padding: 0.618rem 1rem;
+  -webkit-box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75), -2px -2px 0 rgba(0, 0, 0, 0.75);
+          box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75), -2px -2px 0 rgba(0, 0, 0, 0.75);
 }
 
 main {
-  grid-row: 2 / 4;
-  grid-column: 5 / 12;
+  grid-row: 2/4;
+  grid-column: 5/12;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 footer {
   grid-row: 5;
-  grid-column: 1 / 13;
+  grid-column: 1/13;
   padding: var(--padding);
   text-align: end;
-}
+}/*# sourceMappingURL=base.css.map */

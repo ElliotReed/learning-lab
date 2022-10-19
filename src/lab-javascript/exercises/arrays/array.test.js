@@ -1,7 +1,6 @@
-// import * as arr from '../exercises/arrays/array.js';
-import * as app from '../exercises/arrays/app.js';
-import chai from 'chai';
+const chai = require('chai');
 const { assert } = chai;
+const app = require('./app');
 
 const smallNumberArray = [2, 3, 4]
 const numberArray = [21, 55, 69, 420, 18, 42]
