@@ -1,72 +1,69 @@
-const { assert, expect, should } = require('chai');
-const chai = require('chai');
-const { JSDOM } = require('jsdom');
-chai.use(require('chai-dom'));
-require('jsdom-global')();
+const { expect } = require("chai");
+const chai = require("chai");
+const { JSDOM } = require("jsdom");
+chai.use(require("chai-dom"));
+require("jsdom-global")();
 
-describe('emmet-boilerplate.html', () => {
+describe("emmet-boilerplate.html", () => {
   beforeEach((done) => {
-    JSDOM.fromFile('src/lab-html/boilerplate/emmet-boilerplate.html')
+    JSDOM.fromFile("src/lab-html/boilerplate/emmet-boilerplate.exercise.html")
       .then((dom) => {
-        global.document = dom.window.document
+        global.document = dom.window.document;
+        global.head = dom.window.document.head;
       })
       .then(done, done);
   });
 
   describe("doctype", () => {
     it("should be proper doctype", () => {
-      expect(document.doctype.name).to.include('html');
+      expect(document.doctype.name).to.include("html");
     });
   });
 
   describe("html", () => {
-    it("should exist", () => {
-      let element = document.querySelector('html');
-      expect(element).to.exist;
-    });
-
     it("should have attribute lang='en'", () => {
-      let element = document.querySelector('html')
+      let element = document.querySelector("html");
       expect(element).to.have.attribute("lang", "en");
     });
   });
 
   describe("head", () => {
-    const head = document.querySelector('head');
-
     it("should exist", () => {
       expect(head).to.exist;
     });
 
-    it("should contain meta charset utf-8", function () {
-      let element = head.querySelector('meta[charset]');
+    it("should contain meta charset utf-8", () => {
+      let element = head.querySelector("meta[charset]");
       expect(element).to.exist;
-      expect(element).to.have.attribute('charset', 'utf-8');
+      expect(element).to.have.attribute("charset", "utf-8");
     });
 
-    it("should contain meta http-equiv='X-UA-Compatible' content='IE=edge'", function () {
+    it("should contain meta http-equiv='X-UA-Compatible' content='IE=edge'", () => {
       let element = head.querySelector("meta[http-equiv]");
       expect(element).to.exist;
-      //  expect(element).to.have.attribute('http-equiv', 'X-UA-Compatible');
-      //  expect(element).to.have.attribute('content', 'IE=edge');
+      expect(head).to.contain(element);
+      expect(element).to.have.attribute('http-equiv', 'X-UA-Compatible');
+      expect(element).to.have.attribute('content', 'IE=edge');
     });
 
-    it("should contain meta name='viewport' content='width=device-width, initial-scale=1.0'", function () {
+    it("should contain meta name='viewport' content='width=device-width, initial-scale=1.0'", () => {
       let element = head.querySelector("meta[name='viewport']");
       expect(element).to.exist;
-      expect(element).to.have.attribute('content', 'width=device-width, initial-scale=1.0');
+      expect(element).to.have.attribute(
+        "content",
+        "width=device-width, initial-scale=1.0"
+      );
     });
 
-    it("should contain title", function () {
-      let element = document.querySelector('title');
+    it("should contain title", () => {
+      let element = head.querySelector("title");
       expect(element).to.exist;
     });
-
   });
 
   describe("body", () => {
     it("should exist", () => {
-      let element = document.querySelector('body');
+      let element = document.querySelector("body");
       expect(element).to.exist;
     });
   });
