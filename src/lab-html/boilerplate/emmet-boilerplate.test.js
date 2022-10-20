@@ -1,8 +1,9 @@
-const { expect } = require("chai");
-const chai = require("chai");
-const { JSDOM } = require("jsdom");
-chai.use(require("chai-dom"));
-require("jsdom-global")();
+require('jsdom-global');
+const chai = require('chai');
+const chaiDom = require('chai-dom');
+const { JSDOM } = require('jsdom');
+const expect = chai.expect;
+chai.use(chaiDom);
 
 describe("emmet-boilerplate.html", () => {
   beforeEach((done) => {
@@ -28,10 +29,6 @@ describe("emmet-boilerplate.html", () => {
   });
 
   describe("head", () => {
-    it("should exist", () => {
-      expect(head).to.exist;
-    });
-
     it("should contain meta charset utf-8", () => {
       let element = head.querySelector("meta[charset]");
       expect(element).to.exist;
@@ -57,13 +54,6 @@ describe("emmet-boilerplate.html", () => {
 
     it("should contain title", () => {
       let element = head.querySelector("title");
-      expect(element).to.exist;
-    });
-  });
-
-  describe("body", () => {
-    it("should exist", () => {
-      let element = document.querySelector("body");
       expect(element).to.exist;
     });
   });
